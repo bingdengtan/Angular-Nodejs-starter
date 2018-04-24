@@ -129,7 +129,7 @@ export class GridComponent implements OnInit {
       this.start = (this.grid.pageNumber - 1) * this.pageSize + 1;
       this.last = this.grid.pageNumber === this.grid.pageCount ? this.grid.total : this.grid.pageNumber * this.pageSize;
     }
-    this.pageInfo = `显示 ${this.start} - ${this.last} 共 ${this.grid.total} 条记录`;
+    this.pageInfo = `Show ${this.start} - ${this.last} Total ${this.grid.total} records`;
 
     // set the pager
     // this.grid.pageNumber = 13;

@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   serverPort: 8080,
-  pageSize: 20
+  pageSize: 20,
+  authServer: 'http://localhost:3000/'
 };

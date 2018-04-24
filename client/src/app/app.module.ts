@@ -21,7 +21,11 @@ import { CoreService } from './services/core.service';
 import { FundService } from './services/fundService';
 import { FundStockService } from './services/fundStockService';
 import { StockService } from './services/stockService';
+import { AuthService } from './services/authService';
 import { CoreUtils } from './utils/core.utils';
+import { LocalStorage } from './utils/local.storage';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { CoreUtils } from './utils/core.utils';
     AppControlSidebarComponent,
     FundComponent,
     StockComponent,
-    GridComponent
+    GridComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -50,6 +56,8 @@ import { CoreUtils } from './utils/core.utils';
     FundStockService,
     CoreService,
     CoreUtils,
+    AuthService,
+    LocalStorage,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

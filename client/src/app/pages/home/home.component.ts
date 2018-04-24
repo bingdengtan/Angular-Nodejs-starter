@@ -11,7 +11,7 @@ import { GridColumn, GridMenu, GridComponent } from '../../component/grid/grid.c
 })
 export class HomeComponent implements OnInit {
   @ViewChild(GridComponent) gridComponent: GridComponent;
-  title = '基金公司';
+  title = 'My To Do List';
   resetUrl = '';
   gridColumns: any[] = new Array();
   gridActions: any[] = new Array();
@@ -47,17 +47,17 @@ export class HomeComponent implements OnInit {
 
   initGrid(): void {
     this.resetUrl = this.companyService.resetUrl + '/list';
-    let nameCol: GridColumn = {title: '基金公司', filedName: 'name', width: '40%', columnFormat: null, display: true,
+    let nameCol: GridColumn = {title: 'Company', filedName: 'name', width: '40%', columnFormat: null, display: true,
       click: this.columnAction.bind(this),
       sort: {enable: true, sortBy: 'name_ping_yin'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: '创建时间', filedName: 'creation_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: true,
+    nameCol = {title: 'Creation Date', filedName: 'creation_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: true,
       click: null,
       sort: {enable: true, sortBy: 'creation_date'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: '更新时间', filedName: 'last_updated_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: true,
+    nameCol = {title: 'Last Updated Date', filedName: 'last_updated_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: true,
       click: null,
       sort: {enable: true, sortBy: 'last_updated_date'}};
     this.gridColumns.push(nameCol);

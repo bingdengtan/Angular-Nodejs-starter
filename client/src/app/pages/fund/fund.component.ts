@@ -11,7 +11,7 @@ import { GridColumn, GridMenu, GridComponent } from '../../component/grid/grid.c
 })
 export class FundComponent implements OnInit {
   @ViewChild(GridComponent) gridComponent: GridComponent;
-  title = '基金';
+  title = 'My Applications';
   resetUrl = '';
   gridColumns: any[] = new Array();
   gridActions: any[] = new Array();
@@ -46,27 +46,27 @@ export class FundComponent implements OnInit {
 
   initGrid(): void {
     this.resetUrl = this.fundService.resetUrl + '/list';
-    let nameCol: GridColumn = {title: '基金名称', filedName: 'name', width: '30%', columnFormat: null, display: true,
+    let nameCol: GridColumn = {title: 'Name', filedName: 'name', width: '30%', columnFormat: null, display: true,
       click: this.columnAction.bind(this),
       sort: {enable: true, sortBy: 'name_ping_yin'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: '基金代码', filedName: 'code', width: '30%', columnFormat: null, display: true,
+    nameCol = {title: 'Code', filedName: 'code', width: '30%', columnFormat: null, display: true,
       click: null,
       sort: {enable: true, sortBy: 'code'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: '基金公司', filedName: 'company_name', width: '30%', columnFormat: null, display: true,
+    nameCol = {title: 'Company', filedName: 'company_name', width: '30%', columnFormat: null, display: true,
       click: this.columnAction.bind(this),
       sort: {enable: false, sortBy: 'company_name'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: '创建时间', filedName: 'creation_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: false,
+    nameCol = {title: 'Creation Date', filedName: 'creation_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: false,
       click: null,
       sort: {enable: true, sortBy: 'creation_date'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: '更新时间', filedName: 'last_updated_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: false,
+    nameCol = {title: 'Last Updated Date', filedName: 'last_updated_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: false,
       click: null,
       sort: {enable: true, sortBy: 'last_updated_date'}};
     this.gridColumns.push(nameCol);
