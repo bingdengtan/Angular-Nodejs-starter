@@ -7,6 +7,7 @@ import { FundComponent } from '../pages/fund/fund.component';
 import { StockComponent } from '../pages/stock/stock.component';
 import { LoginComponent } from '../pages/login/login.component';
 import { DashboardComponent } from '../pages/dashboard/dashboard.component';
+import { UserComponent } from '../pages/user/user.component';
 
 @NgModule({
   imports: [
@@ -15,9 +16,9 @@ import { DashboardComponent } from '../pages/dashboard/dashboard.component';
       { path: 'login', component: LoginComponent },
       { path: 'dashboard', component: DashboardComponent,
         children: [
-          { path: 'companies', component: HomeComponent },
-          { path: 'funds', component: FundComponent },
-          { path: 'stock', component: StockComponent }
+          { path: 'todo', component: HomeComponent },
+          { path: 'myapp', component: FundComponent },
+          { path: 'user', component: UserComponent }
         ]
       }
     ])

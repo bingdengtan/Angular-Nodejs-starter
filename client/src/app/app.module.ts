@@ -21,11 +21,13 @@ import { CoreService } from './services/core.service';
 import { FundService } from './services/fundService';
 import { FundStockService } from './services/fundStockService';
 import { StockService } from './services/stockService';
+import { UserService } from './services/userService';
 import { AuthService } from './services/authService';
 import { CoreUtils } from './utils/core.utils';
 import { LocalStorage } from './utils/local.storage';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     StockComponent,
     GridComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -54,6 +57,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     FundService,
     StockService,
     FundStockService,
+    UserService,
     CoreService,
     CoreUtils,
     AuthService,

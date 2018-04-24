@@ -3,15 +3,15 @@
         {
           "header":"Navigator",
           "items":[
-            {"title":"My To Do List", "path":"dashboard/companies", "description":"基金公司", "icon":"fa fa-building"}, 
-            {"title":"My Application", "path":"dashboard/funds", "description":"基金", "icon":"fa fa-list"}
+            {"title":"My To Do List", "path":"dashboard/todo", "description":"基金公司", "icon":"fa fa-building"}, 
+            {"title":"My Application", "path":"dashboard/myapp", "description":"基金", "icon":"fa fa-list"}
           ]
         },
         {
           "header":"Settings",
           "items":[
-            {"title":"Keyword", "path":"spider", "description":"爬虫设置", "icon":"fa fa-wrench"},
-            {"title":"User Profile", "path":"spider", "description":"爬虫设置", "icon":"fa fa-address-book"}
+            {"title":"Keyword", "path":"dashboard/keyword", "description":"爬虫设置", "icon":"fa fa-wrench"},
+            {"title":"User Profile", "path":"dashboard/user", "description":"爬虫设置", "icon":"fa fa-address-book"}
           ]
         }
     ]

@@ -12,6 +12,7 @@ import { LocalStorage } from '../../utils/local.storage';
 export class LoginComponent implements OnInit, OnDestroy {
   public username: string;
   public password: string;
+  public authBy: string;
   public invalidPassword: boolean;
 
   constructor(public authService: AuthService, private router: Router, private localStorage: LocalStorage) {
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.authBy = 'ldap';
   }
 
   ngOnDestroy(): void {
@@ -29,15 +30,30 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(): void {
-    this.authService.login(this.username, this.password).then(response => {
-      if (response.success) {
-        this.invalidPassword = false;
-        this.localStorage.set('token', response.token);
-        this.localStorage.setObject('user', response.user);
-        this.router.navigate(['dashboard/stock']);
-      }else {
-        this.invalidPassword = true;
-      }
-    });
+    if(this.authBy!='ldap'){
+      this.invalidPassword = false;
+      this.localStorage.remove('token');
+      this.authService.getLocalUser(this.username, this.password).then(response => {
+        if(response.success){
+          this.invalidPassword = false;
+          this.localStorage.set('token', response.token);
+          this.localStorage.setObject('user', response.user);
+          this.router.navigate(['dashboard/user']);
+        }else{
+          this.invalidPassword = true;
+        }
+      })
+    }else{
+      this.authService.login(this.username, this.password).then(response => {
+        if (response.success) {
+          this.invalidPassword = false;
+          this.localStorage.set('token', response.token);
+          this.localStorage.setObject('user', response.user);
+          this.router.navigate(['dashboard/mytodo']);
+        }else {
+          this.invalidPassword = true;
+        }
+      });
+    }
   }
 }

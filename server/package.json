@@ -10,9 +10,11 @@
   "author": "bingdeng tan",
   "license": "ISC",
   "dependencies": {
+    "agenda": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^5.0.1",
-    "mount-routes": "^1.0.8"
+    "mount-routes": "^1.0.8",
+    "nodemailer": "^4.6.4"
   }
 }

@@ -8,8 +8,11 @@ import { LocalStorage } from '../utils/local.storage';
 
 @Injectable()
 export class AuthService {
-    constructor(public http: Http, public localStorage: LocalStorage, public coreUtils: CoreUtils) {
+    serverPortNumber = environment.serverPort;
+    resetUrl = '/user';
 
+    constructor(public http: Http, public localStorage: LocalStorage, public coreUtils: CoreUtils) {
+        this.resetUrl = coreUtils.getAppHostName() + ':' + this.serverPortNumber + this.resetUrl;
     }
 
     isAuthorized(): Promise<any> {
@@ -48,5 +51,19 @@ export class AuthService {
                     reject(e);
                 });
         });
+    }
+
+    getLocalUser(username: string, password: string): any{
+        return new Promise((resolve, reject) => {
+            let user = {username: username, password: password};
+            this.http.post(this.resetUrl + '/validate', user)
+                .toPromise()
+                .then( response => {
+                    resolve(response.json());
+                })
+                .catch(e => {
+                    reject(e);
+                });
+        });        
     }
 }
