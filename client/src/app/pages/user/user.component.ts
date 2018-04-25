@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { UserService } from '../../services/userService';
@@ -19,7 +20,7 @@ export class UserComponent implements OnInit {
   gridActions: any[] = new Array();
   funds: any[];
 
-  constructor(public userService: UserService, public coreUtils: CoreUtils, private modalService: NgbModal) { }
+  constructor(public userService: UserService, public coreUtils: CoreUtils, private modalService: NgbModal, private router: Router) { }
 
   ngOnInit() {
     window.dispatchEvent(new Event('resize'));
@@ -27,12 +28,7 @@ export class UserComponent implements OnInit {
   }
 
   menuActionNew(content): void {
-    this.modalService.open(content).result.then((result) => {
-      
-    }, (reason) => {
-      
-    });
-
+    this.router.navigate(['dashboard/edituser']);
   }
 
   menuActionEdit(): void {
@@ -58,12 +54,22 @@ export class UserComponent implements OnInit {
       sort: {enable: true, sortBy: 'username'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: 'Creation Date', filedName: 'creation_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: true,
+    nameCol = {title: 'Email', filedName: 'email', width: '30%', columnFormat: null, display: true,
+      click: null,
+      sort: {enable: true, sortBy: 'email'}};
+    this.gridColumns.push(nameCol);
+
+    nameCol = {title: 'Location', filedName: 'location', width: '30%', columnFormat: null, display: true,
+      click: null,
+      sort: {enable: true, sortBy: 'location'}};
+    this.gridColumns.push(nameCol);
+
+    nameCol = {title: 'Creation Date', filedName: 'creation_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: false,
       click: null,
       sort: {enable: true, sortBy: 'creation_date'}};
     this.gridColumns.push(nameCol);
 
-    nameCol = {title: 'Last Updated Date', filedName: 'last_updated_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: true,
+    nameCol = {title: 'Last Updated Date', filedName: 'last_updated_date', width: '30%', columnFormat: this.getDateFormat.bind(this), display: false,
       click: null,
       sort: {enable: true, sortBy: 'last_updated_date'}};
     this.gridColumns.push(nameCol);

@@ -5,6 +5,8 @@ var UserSchema = new schema(
     {
         password: {type: String, required: true},
         username: {type: String, required: true},
+        location: {type: String, required: false},
+        email: {type: String, required: true},
         creation_date: {type: Date},
         creation_by: {type: String},
         last_updated_date: {type: Date},

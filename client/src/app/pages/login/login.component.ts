@@ -30,26 +30,26 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(): void {
-    if(this.authBy!='ldap'){
+    if (this.authBy !== 'ldap') {
       this.invalidPassword = false;
       this.localStorage.remove('token');
       this.authService.getLocalUser(this.username, this.password).then(response => {
-        if(response.success){
+        if (response.success) {
           this.invalidPassword = false;
           this.localStorage.set('token', response.token);
           this.localStorage.setObject('user', response.user);
-          this.router.navigate(['dashboard/user']);
-        }else{
+          this.router.navigate(['dashboard/users']);
+        }else {
           this.invalidPassword = true;
         }
-      })
-    }else{
+      });
+    }else {
       this.authService.login(this.username, this.password).then(response => {
         if (response.success) {
           this.invalidPassword = false;
           this.localStorage.set('token', response.token);
           this.localStorage.setObject('user', response.user);
-          this.router.navigate(['dashboard/mytodo']);
+          this.router.navigate(['dashboard/users']);
         }else {
           this.invalidPassword = true;
         }

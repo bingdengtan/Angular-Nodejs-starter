@@ -28,6 +28,7 @@ import { LocalStorage } from './utils/local.storage';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserComponent } from './pages/user/user.component';
+import { UserEditComponent } from './pages/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UserComponent } from './pages/user/user.component';
     GridComponent,
     LoginComponent,
     DashboardComponent,
-    UserComponent
+    UserComponent,
+    UserEditComponent
   ],
   imports: [
     NgbModule.forRoot(),

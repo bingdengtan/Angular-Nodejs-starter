@@ -6,8 +6,9 @@ exports.list = function(query, pager, callback){
     return dbHelper.pageAggregateQuery(pager.pageNumber, pager.pageSize, User, aggregate, query, pager.sort, callback)
 }
 
-exports.create = function(req, res){
-    
+exports.create = function(user, callback){
+    return User
+        .create(user, callback)
 }
 
 exports.getById = function(id, callback){

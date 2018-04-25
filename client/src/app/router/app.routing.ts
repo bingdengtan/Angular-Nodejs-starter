@@ -8,6 +8,7 @@ import { StockComponent } from '../pages/stock/stock.component';
 import { LoginComponent } from '../pages/login/login.component';
 import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { UserComponent } from '../pages/user/user.component';
+import { UserEditComponent } from '../pages/user-edit/user-edit.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { UserComponent } from '../pages/user/user.component';
         children: [
           { path: 'todo', component: HomeComponent },
           { path: 'myapp', component: FundComponent },
-          { path: 'user', component: UserComponent }
+          { path: 'users', component: UserComponent },
+          { path: 'edituser', component: UserEditComponent }
         ]
       }
     ])

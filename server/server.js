@@ -10,7 +10,7 @@ var app = express();
 var Agenda = require('agenda');
 var agenda = new Agenda({db: {address: 'mongodb://localhost:27017/agenda'}});
 
-agenda.define('EAR_Notify_Each_5_Seconds', function (job, done) {
+agenda.define('ear.reminder', function (job, done) {
     try {
       scheduleService.sendEmail();
       done()

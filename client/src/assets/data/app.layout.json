@@ -11,7 +11,7 @@
           "header":"Settings",
           "items":[
             {"title":"Keyword", "path":"dashboard/keyword", "description":"爬虫设置", "icon":"fa fa-wrench"},
-            {"title":"User Profile", "path":"dashboard/user", "description":"爬虫设置", "icon":"fa fa-address-book"}
+            {"title":"User Profile", "path":"dashboard/users", "description":"爬虫设置", "icon":"fa fa-address-book"}
           ]
         }
     ]

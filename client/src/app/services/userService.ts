@@ -14,15 +14,28 @@ export class UserService {
     }
 
     getUsers(): Promise<any> {
-        return new Promise((resolve, reject) => {
-          this.http.get(this.resetUrl + '/list')
-            .toPromise()
-            .then( response => {
-              resolve(response.json());
-            })
-            .catch(e => {
-              reject(e);
-            });
-        });
-      }
+      return new Promise((resolve, reject) => {
+        this.http.get(this.resetUrl + '/list')
+          .toPromise()
+          .then( response => {
+            resolve(response.json());
+          })
+          .catch(e => {
+            reject(e);
+          });
+      });
+    }
+
+    saveUser(user: any): Promise<any> {
+      return new Promise((resolve, reject) => {
+        this.http.post(this.resetUrl + '/create', user)
+          .toPromise()
+          .then( response => {
+            resolve(response.json());
+          })
+          .catch(e => {
+            reject(e);
+          });
+      });
+    }
 }
